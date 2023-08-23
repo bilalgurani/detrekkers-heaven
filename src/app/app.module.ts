@@ -12,6 +12,7 @@ import { CarRentalComponent } from './car-rental/car-rental.component';
 import { RouterModule } from '@angular/router';
 import { ViewComponent } from './view/view.component';
 import { DatePipe } from '@angular/common';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { DatePipe } from '@angular/common';
     ToursComponent,
     CarRentalComponent,
     ViewComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,6 +35,7 @@ import { DatePipe } from '@angular/common';
       { path: 'flights', component: FlightComponent },
       { path: 'car-rental', component: CarRentalComponent },
       { path: 'tours', component: ToursComponent },
+      { path: '**', component: ErrorComponent },
     ]),
   ],
   providers: [DatePipe],

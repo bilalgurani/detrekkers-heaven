@@ -1,0 +1,97 @@
+<main class="hotel-view">
+  <div class="gallary">
+    <figure
+      class="gallary__item"
+      *ngFor="let photo of hotelsList.displayImages"
+    >
+      <img
+        src="{{ '../../assets/' + photo.img }}"
+        alt="{{ photo.alt }}"
+        class="gallary__photo"
+      />
+    </figure>
+  </div>
+  <div class="overview">
+    <h1 class="overview__heading">Hotel {{ hotelsList.name }}</h1>
+    <div class="overview__stars">
+      <svg class="overview__icon-stars" *ngFor="let star of hotelsList.ratings">
+        <use xlink:href="../../assets/sprite.svg#icon-star"></use>
+      </svg>
+    </div>
+    <div class="overview__location">
+      <svg class="overview__icon-location">
+        <use xlink:href="../../assets/sprite.svg#icon-key"></use>
+      </svg>
+      <button class="btn-inline">{{ hotelsList.location }}</button>
+    </div>
+    <div class="overview__rating">
+      <div class="overview__rating-avg">{{ hotelsList.avgRating }}</div>
+
+      <div class="overview__rating-count">{{ hotelsList.votes }} votes</div>
+    </div>
+  </div>
+  <div class="details">
+    <div class="description">
+      <p class="paragraph">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque pariatur
+        fugiat nulla, fuga saepe modi quae laudantium in quas! Maiores eius ipsa
+        in ducimus iusto? Voluptatum quaerat velit natus expedita.
+      </p>
+      <p class="paragraph">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut provident
+        cumque saepe nihil ipsam molestias quod reiciendis hic et voluptates
+        dolore numquam blanditiis reprehenderit expedita asperiores tenetur,
+        fugit quisquam doloribus.
+      </p>
+      <ul class="list">
+        <li
+          class="list__item"
+          *ngFor="let feature of hotelsList.featuresOfHotel"
+        >
+          {{ feature }}
+        </li>
+      </ul>
+      <div class="recommend">
+        <p class="recommend__count">
+          {{ hotelsList.feedback[0].name }} and
+          {{ hotelsList.feedback.length - 1 }} other friends recommend this
+          hotel.
+        </p>
+        <div class="recommend__img-box">
+          <img
+            class="recommend__user-img"
+            [src]="person.url"
+            alt="User photo"
+            *ngFor="let person of hotelsList.feedback | slice : 0 : 4"
+          />
+        </div>
+      </div>
+    </div>
+    <figure class="user-review">
+      <figure class="review" *ngFor="let review of hotelsList.reviews">
+        <blockquote class="review__text">
+          {{ review.comment }}
+        </blockquote>
+        <figcaption class="review__user">
+          <img [src]="review.img" alt="User photo" class="review__photo" />
+          <div class="review__user-box">
+            <p class="review__user-name">{{ review.name }}</p>
+            <p class="review__user-date">{{ randomData }}</p>
+          </div>
+          <div class="review__rating">{{ review.rating }}</div>
+        </figcaption>
+      </figure>
+      <button class="btn-inline">Show more <span>&rarr;</span></button>
+    </figure>
+  </div>
+  <div class="cta">
+    <h2 class="cta__book-now">
+      Good news! We have 4 rooms for your selected dates!
+    </h2>
+    <button class="btn">
+      <span class="btn__visible">Book now</span>
+
+      <span class="btn__invisible">Only 4 rooms left</span>
+    </button>
+  </div>
+</main>

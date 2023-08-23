@@ -1,0 +1,18 @@
+<nav class="sidebar">
+  <ul class="side-nav">
+    <li
+      class="side-nav__item"
+      routerLinkActive="side-nav__item--active"
+      *ngFor="let li of sideBarList"
+    >
+      <a class="side-nav__link"   routerLink="/{{ li.nav }}">
+        <svg class="side-nav__icon">
+          <use [attr.xlink:href]="li.svgLink"></use></svg
+        >{{ li.name }}</a
+      >
+    </li>
+  </ul>
+</nav>
+<div class="legal">
+  &copy; {{ currentYear }} by Detrekkers Heaven. All right s reserved.
+</div>

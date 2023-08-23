@@ -1,0 +1,17 @@
+div {
+  text-align: center;
+}
+.btn {
+  color: #fff;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary-light),
+    var(--color-primary-dark)
+  );
+  font-weight: 600;
+  padding: 1.5rem 2.5rem;
+  margin-top: 2rem;
+}
